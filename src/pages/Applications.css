@@ -1,0 +1,130 @@
+.apps-page {
+  animation: apps-fade-in 1s ease both;
+  padding: clamp(40px, 5vw, 80px) 18px;
+  background: var(--bg);
+  color: var(--text);
+  content-visibility: auto;
+  contain-intrinsic-size: 800px 1200px;
+}
+@keyframes apps-fade-in { from {opacity:0} to {opacity:1} }
+
+.apps-inner { max-width: 1240px; margin: 0 auto; }
+
+.apps-head { text-align: center; margin-bottom: clamp(28px, 4vw, 56px); }
+.apps-title {
+  font-weight: 800;
+  font-size: clamp(22px, 3.2vw, 36px);
+  letter-spacing: 0.02em;
+  margin: 0;
+}
+.apps-sub { color: var(--muted); margin-top: 8px; font-size: clamp(14px, 1.4vw, 16px); }
+.apps-rule {
+  display: block; width: 72px; height: 3px; background: var(--olive, #7aa35f);
+  border-radius: 2px; margin: 14px auto 0;
+}
+
+.apps-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: clamp(16px, 2.2vw, 28px);
+}
+@media (max-width: 820px) {
+  .apps-grid { grid-template-columns: 1fr; }
+}
+
+.appcard {
+  background: var(--bg-elev);
+  border-radius: var(--radius, 14px);
+  overflow: hidden;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.18);
+  transition: transform .25s ease, box-shadow .25s ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.appcard:hover { transform: translateY(-2px); box-shadow: 0 14px 30px rgba(0,0,0,0.22); }
+
+.appcard__media {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+.appcard__media::before {
+  content: "";
+  display: block;
+  padding-top: 62.5%;
+}
+.appcard__media img,
+.appcard__overlay { position: absolute; inset: 0; }
+
+.appcard__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  transition: transform .35s ease;
+}
+.appcard:hover .appcard__media img { transform: scale(1.05); }
+
+.appcard__overlay {
+  display: grid;
+  place-items: end center;
+  opacity: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.45), rgba(0,0,0,0.1));
+  transition: opacity .25s ease;
+  pointer-events: none;
+}
+.appcard:hover .appcard__overlay { opacity: 1; }
+
+.appcard__overlay-box {
+  width: 92%;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  background: rgba(20,23,28,0.8);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  color: #e9eef5;
+  font-size: 0.95rem;
+  line-height: 1.35rem;
+}
+
+/* Tap overlay for mobile (Chrome fix) */
+.appcard.touch-mode .appcard__overlay {
+  opacity: 0;
+  pointer-events: none;
+}
+.appcard.touch-mode.active .appcard__overlay {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Caption */
+.appcard__caption { padding: 14px 16px 24px; }
+.appcard__title { font-size: clamp(16px, 1.6vw, 18px); font-weight: 700; margin: 0; }
+
+/* Responsive */
+@media (max-width: 600px) {
+  .appcard__media::before { padding-top: 75%; }
+  .appcard__caption { padding: 10px 12px 18px; }
+}
+@media (max-width: 400px) {
+  .appcard__media::before { padding-top: 100%; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .apps-page { animation: none; }
+  .appcard, .appcard__overlay, .appcard__media img { transition: none !important; }
+}
+/* ===== Mobile spacer to force layout gap under fixed navbar ===== */
+:root { --apps-nav-h: 50px; }
+
+@media (max-width: 768px) {
+  html { scroll-padding-top: var(--apps-nav-h); }
+  .apps-page { position: relative; }
+  .apps-page::before {
+    content: "";
+    display: block;
+    height: var(--apps-nav-h);   /* creates real space before the content */
+  }
+}

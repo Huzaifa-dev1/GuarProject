@@ -1,0 +1,46 @@
+/* Global page load fade */
+:root.page-enter {
+  opacity: 0;
+}
+:root.page-enter.page-enter-active {
+  opacity: 1;
+  transition: opacity 700ms ease;
+}
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  :root.page-enter.page-enter-active {
+    transition: none;
+  }
+  [data-anim] {
+    transition: none !important;
+    transform: none !important;
+    opacity: 1 !important;
+  }
+}
+
+/* Base + states */
+.anim-base {
+  will-change: transform, opacity;
+  transition: opacity 600ms ease, transform 600ms ease;
+  opacity: 0;
+}
+
+/* OUT states (before reveal / leaving viewport) */
+.anim-out[data-anim="fade"]        { opacity: 0; transform: none; }
+.anim-out[data-anim="slide-left"]  { opacity: 0; transform: translateX(-28px); }
+.anim-out[data-anim="slide-right"] { opacity: 0; transform: translateX(28px); }
+.anim-out[data-anim="slide-up"]    { opacity: 0; transform: translateY(28px); }
+.anim-out[data-anim="slide-down"]  { opacity: 0; transform: translateY(-28px); }
+
+/* IN states (entered viewport) */
+.anim-in[data-anim="fade"]         { opacity: 1; transform: none; }
+.anim-in[data-anim="slide-left"],
+.anim-in[data-anim="slide-right"],
+.anim-in[data-anim="slide-up"],
+.anim-in[data-anim="slide-down"]  { opacity: 1; transform: translate(0, 0); }
+
+/* Optional: slightly faster when scrolling down, slower on up */
+html[data-scroll-dir="down"] [data-anim] { transition-duration: 520ms; }
+html[data-scroll-dir="up"]   [data-anim] { transition-duration: 680ms; }
+

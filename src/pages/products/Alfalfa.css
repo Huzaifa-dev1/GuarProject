@@ -1,0 +1,278 @@
+/* =========================================================
+   ALFALFA PAGE — FINAL CSS (desktop unchanged)
+   ========================================================= */
+
+/* Theme tokens assumed: --bg, --text, --muted, --olive, --line */
+.alf-page {
+  position: relative;
+  background: var(--bg);
+  color: var(--text);
+  overflow: clip;
+}
+
+/* overlay film (content remains crisp) */
+.page-glow {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(120% 100% at 50% 40%, transparent 40%, rgba(0, 0, 0, .06) 100%);
+  mix-blend-mode: multiply;
+}
+
+/* ===== HERO ===== */
+.alf-hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;       /* desktop layout (UNCHANGED) */
+  grid-template-areas: "text media";        /* map areas so we can reorder on mobile */
+  gap: clamp(18px, 4vw, 36px);
+  align-items: center;
+  padding: clamp(28px, 6vw, 64px) clamp(18px, 5.5vw, 42px);
+}
+.ah__text { grid-area: text; }
+.ah__media-wrap { grid-area: media; }
+
+.ah__title {
+  margin: 0 0 10px;
+  font-weight: 900;
+  font-size: clamp(28px, 4.2vw, 56px);
+  letter-spacing: .01em;
+}
+
+.muted {
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.ah__blurb {
+  margin: 10px 0 0;
+  line-height: 1.9;
+  font-size: clamp(14px, 1.6vw, 18px);
+  max-width: 68ch;
+}
+
+.ah__media-wrap {
+  display: grid;
+  place-items: center;
+}
+
+/* 3D tilt image (no box) */
+.tilt-card {
+  position: relative;
+  width: min(440px, 84vw);
+  margin: 0 auto;                 /* helps keep centered on narrow screens */
+  aspect-ratio: 1 / 1;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  overflow: visible;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  transition: transform .4s ease, filter .4s ease;
+}
+
+.tilt-card:hover {
+  /* Stop the tiny brighten while keeping scale/tilt from framer-motion */
+  filter: none;
+}
+
+.tilt-card img {
+  position: relative;
+  width: 85%;
+  height: 85%;
+  object-fit: contain;
+  transform: translateZ(40px);
+  pointer-events: none;
+}
+
+/* Kill the light glare highlight entirely */
+.tilt-glare { display: none !important; }
+
+.tilt-shadow {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -10%;
+  height: 40%;
+  background: radial-gradient(50% 80% at 50% 100%, rgba(0, 0, 0, .42), transparent 80%);
+  filter: blur(12px);
+  pointer-events: none;
+}
+
+/* ===== USES ===== */
+.alf-uses {
+  padding: clamp(36px, 6vw, 72px) clamp(18px, 5.5vw, 42px);
+}
+
+.center-head {
+  text-align: center;
+  font-weight: 900;
+  font-size: clamp(20px, 3.2vw, 32px);
+  margin: 0 0 clamp(18px, 3vw, 28px);
+}
+
+.uses-grid {
+  display: grid;
+  grid-template-columns: 1fr .9fr;
+  gap: clamp(16px, 4vw, 32px);
+}
+
+.uses-left h3 {
+  margin: 16px 0 8px;
+  font-weight: 800;
+  font-size: clamp(16px, 2.2vw, 20px);
+}
+
+.uses-left ul {
+  margin: 0 0 10px;
+  padding-left: 20px;
+  line-height: 1.85;
+}
+
+.uses-note {
+  align-self: start;
+  background: linear-gradient(180deg, rgba(111, 143, 58, .10), rgba(111, 143, 58, .04));
+  border: 1px solid color-mix(in oklab, var(--olive) 25%, transparent 75%);
+  border-radius: 16px;
+  padding: 16px 18px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .15);
+}
+
+/* ===== SPECS ===== */
+.alf-specs {
+  padding: clamp(36px, 6vw, 72px) clamp(18px, 5.5vw, 42px);
+}
+
+.specs-grid {
+  display: grid;
+  gap: clamp(12px, 2.4vw, 22px);
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.spec-card {
+  background: var(--bg);
+  border: 1px solid var(--line, rgba(255, 255, 255, .12));
+  border-radius: 16px;
+  padding: 14px 16px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .15);
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.spec-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 36px rgba(0, 0, 0, .25);
+}
+
+.spec-card header {
+  display: flex;
+  justify-content: flex-start;
+  margin-bottom: 8px;
+}
+.alf-page { overflow: hidden; }
+
+.badge {
+  display: inline-block;
+  color: #fff;
+  background: color-mix(in oklab, var(--olive) 92%, black 0%);
+  border: 1px solid rgba(255, 255, 255, .25);
+  font-weight: 900;
+  letter-spacing: .04em;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.spec-card ul {
+  margin: 8px 0 10px;
+  padding: 0 0 0 16px;
+  line-height: 1.8;
+}
+
+.spec-card footer {
+  color: var(--muted);
+  font-size: 12px;
+}
+:root { --nav-h: 72px; }  
+
+/* =========================================================
+   RESPONSIVE — swap order only on ≤1024px and center media
+   ========================================================= */
+@media (max-width: 1024px) {
+  .alf-hero {
+    padding-top: calc(var(--nav-h) + 20px);  
+    grid-template-columns: 1fr;      /* stack */
+    grid-template-areas:
+      "text"
+      "media";                        /* ✅ image AFTER text */
+    text-align: center;
+    justify-items: center;             /* center both children */
+    align-items: center;
+
+  }
+
+  .ah__media-wrap {
+    /* no order tricks; grid-areas handle order */
+    display: flex;                    /* make sure card itself centers */
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  
+  }
+
+  .tilt-card {
+    width: min(420px, 90vw);          /* tablet size */
+    margin: 0 auto;                   /* keep centered */
+  }
+
+  .tilt-card img {
+    width: 82%;
+    height: auto;
+  }
+
+  .uses-grid {
+    grid-template-columns: 1fr;       /* stack uses section */
+  }
+
+  .specs-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .tilt-card {
+    width: min(360px, 90vw);          /* mobile size */
+    margin: 0 auto;
+  }
+
+  .tilt-card img {
+    width: 80%;
+  }
+
+  .specs-grid {
+    grid-template-columns: 1fr;       /* single column specs on small phones */
+  }
+}
+
+/* ===== Optional: motion permission button ===== */
+.motion-btn {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 2;
+  border: 1px solid rgba(255, 255, 255, .35);
+  background: color-mix(in oklab, var(--olive) 80%, black 0%);
+  color: #fff;
+  font-weight: 700;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+}
+
+.motion-btn:active {
+  transform: translateY(1px);
+}
+
+.motion-btn:hover {
+  box-shadow: 0 6px 16px rgba(0, 0, 0, .2);
+  background: color-mix(in oklab, var(--olive) 90%, black 0%);
+}
