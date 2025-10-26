@@ -7,19 +7,19 @@ import useDeviceTilt from "../../hooks/useDeviceTilt";
 /* ---------- Animation variants ---------- */
 const pageFade = {
   hidden: { opacity: 0 },
-  show:   { opacity: 1, transition: { duration: 1.1, ease: [0.25, 1, 0.35, 1] } }
+  show: { opacity: 1, transition: { duration: 1.1, ease: [0.25, 1, 0.35, 1] } }
 };
 const fadeUp = {
   hidden: { opacity: 0, y: 32 },
-  show:   { opacity: 1, y: 0, transition: { duration: 1.0, ease: [0.22, 1, 0.36, 1] } }
+  show: { opacity: 1, y: 0, transition: { duration: 1.0, ease: [0.22, 1, 0.36, 1] } }
 };
 const slideIn = (dir = "left", d = 90) => ({
   hidden: { opacity: 0, x: dir === "left" ? -d : dir === "right" ? d : 0, scale: 0.98 },
-  show:   { opacity: 1, x: 0, scale: 1, transition: { duration: 1.0, ease: [0.22, 1, 0.36, 1] } }
+  show: { opacity: 1, x: 0, scale: 1, transition: { duration: 1.0, ease: [0.22, 1, 0.36, 1] } }
 });
 const containerStagger = (delay = 0.12, stagger = 0.12) => ({
   hidden: { opacity: 1 },
-  show:   { opacity: 1, transition: { delayChildren: delay, staggerChildren: stagger, when: "beforeChildren" } }
+  show: { opacity: 1, transition: { delayChildren: delay, staggerChildren: stagger, when: "beforeChildren" } }
 });
 
 export default function GuarGum() {
@@ -39,7 +39,7 @@ export default function GuarGum() {
   const onMove = (e) => {
     const r = cardRef.current?.getBoundingClientRect(); if (!r) return;
     mouseX.set(Math.max(0, Math.min(1, (e.clientX - r.left) / r.width)));
-    mouseY.set(Math.max(0, Math.min(1, (e.clientY - r.top)  / r.height)));
+    mouseY.set(Math.max(0, Math.min(1, (e.clientY - r.top) / r.height)));
   };
   const onLeave = () => { mouseX.set(0.5); mouseY.set(0.5); };
 
@@ -61,24 +61,24 @@ export default function GuarGum() {
 
   const rotateX = useTransform(srcY, [0, 1], [12, -12]);
   const rotateY = useTransform(srcX, [0, 1], [-18, 18]);
-  const glareX  = useTransform(srcX, v => `${(typeof v === "number" ? v : v.get?.() || .5) * 100}%`);
-  const glareY  = useTransform(srcY, v => `${(typeof v === "number" ? v : v.get?.() || .5) * 100}%`);
+  const glareX = useTransform(srcX, v => `${(typeof v === "number" ? v : v.get?.() || .5) * 100}%`);
+  const glareY = useTransform(srcY, v => `${(typeof v === "number" ? v : v.get?.() || .5) * 100}%`);
 
   const requestMotion = async () => {
     try {
       if (typeof DeviceOrientationEvent !== "undefined" &&
-          typeof DeviceOrientationEvent.requestPermission === "function") {
+        typeof DeviceOrientationEvent.requestPermission === "function") {
         const res = await DeviceOrientationEvent.requestPermission();
         if (res === "granted") setMotionEnabled(true);
       } else setMotionEnabled(true);
-    } catch {}
+    } catch { }
   };
 
   // Rhodes Grass specs data
   const specs = [
-    { grade: "Rhodes-Pro",    germ: "≥ 85% (typical)", purity: "≥ 95%", moisture: "≤ 12%", notes: "Fast establishment; excellent erosion control" },
-    { grade: "Rhodes-Std",    germ: "≥ 80% (typical)", purity: "≥ 95%", moisture: "≤ 12%", notes: "Heat, drought & salinity tolerant roadside cover" },
-    { grade: "Hay-Select",    germ: "≥ 85% (typical)", purity: "≥ 98%", moisture: "≤ 12%", notes: "Cut for hay; leafy growth and good regrowth" },
+    { grade: "Rhodes-Pro", germ: "≥ 85% (typical)", purity: "≥ 95%", moisture: "≤ 12%", notes: "Fast establishment; excellent erosion control" },
+    { grade: "Rhodes-Std", germ: "≥ 80% (typical)", purity: "≥ 95%", moisture: "≤ 12%", notes: "Heat, drought & salinity tolerant roadside cover" },
+    { grade: "Hay-Select", germ: "≥ 85% (typical)", purity: "≥ 98%", moisture: "≤ 12%", notes: "Cut for hay; leafy growth and good regrowth" },
     { grade: "Pasture-Blend", germ: "≥ 80% (typical)", purity: "≥ 95%", moisture: "≤ 12%", notes: "Reliable pasture stand; grazing & ground cover" }
   ];
 
@@ -175,7 +175,10 @@ export default function GuarGum() {
             <ul>
               <li>Leafy forage; suitable for haymaking and grazing</li>
               <li>Quick regrowth; tolerant of heat, drought and salinity</li>
+              <li>Highly palatable and digestible feed for camels, sheep, and goats</li>
+              <li>Provides excellent roughage and nutrition for diverse livestock species</li>
             </ul>
+
           </motion.div>
 
           <motion.aside className="uses-note" variants={slideIn("right", 80)}>

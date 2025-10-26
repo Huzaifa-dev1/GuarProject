@@ -80,7 +80,7 @@ export default function CompanyIntro() {
           <p className="ci__text">
             <strong>Qamar Group (QGRP)</strong> is rooted in Southern Punjab,
             a region recognized for rich agriculture and extensive cultivation of{" "}
-            <strong>Road Grass</strong> and <strong>Alfalfa</strong>. Core cultivating areas include{" "}
+            <strong>Rhodes Grass</strong> and <strong>Alfalfa</strong>. Core cultivating areas include{" "}
             <em>Muzaffargarh, Taunsa Shareef, Layyah, Bhakkar, and Mianwali</em>.
           </p>
         </motion.section>
@@ -92,11 +92,11 @@ export default function CompanyIntro() {
           <h3 className="ci__sub">Family Heritage</h3>
           <p className="ci__text">
             The seed-trading enterprise began with the <strong>Qamar family</strong> in
-            the 1950s, initially focused on <strong>Road Grass</strong> and{" "}
+            the 1950s, initially focused on <strong>Rhodes Grass</strong> and{" "}
             {/* <strong>Alfalfa</strong> seed trade. It was led by{" "}
             <strong>Ch. Rahim Ud Din (Late)</strong>, grandfather of Qamar Group’s
             current CEO, whose vision centered on growth and prosperity for the
-            Road Grass &amp; Alfalfa sector. */}
+            Rhodes Grass &amp; Alfalfa sector. */}
           </p>
         </motion.section>
 
@@ -109,7 +109,7 @@ export default function CompanyIntro() {
             Building on a diversified group portfolio—construction, carriage
             services, oil mill, and bitumen trading—the Group established{" "}
             <strong>Qamar Group (QGRP)</strong>, the region’s first dedicated
-            seed/forage processing unit for <strong>Road Grass</strong> and{" "}
+            seed/forage processing unit for <strong>Rhodes Grass</strong> and{" "}
             <strong>Alfalfa</strong>. Today, QGRP serves export and domestic markets
             with:
           </p>
@@ -120,9 +120,9 @@ export default function CompanyIntro() {
             whileInView="show"
             viewport={{ once: true, amount: 0.4 }}
           >
-            <motion.li variants={fadeDown}>Road Grass – Certified Seed</motion.li>
+            <motion.li variants={fadeDown}>Rhodes Grass – Certified Seed</motion.li>
             <motion.li variants={fadeDown}>Alfalfa – Hay, Meal, &amp; Pellets</motion.li>
-            <motion.li variants={fadeDown}>Road Grass &amp; Alfalfa Forage Blends</motion.li>
+            <motion.li variants={fadeDown}>Rhodes Grass &amp; Alfalfa Forage Blends</motion.li>
           </motion.ul>
         </motion.section>
 
@@ -135,7 +135,7 @@ export default function CompanyIntro() {
             We pursue the highest standards in production, packaging, and supply,
             with a consistent focus on cost-effectiveness and on-time delivery.
             Our goal is to serve international and domestic customers with
-            dependable quality and long-term value across Road Grass and Alfalfa lines.
+            dependable quality and long-term value across Rhodes Grass and Alfalfa lines.
           </p>
           <motion.ul
             className="ci__bullets"

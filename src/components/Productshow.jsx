@@ -8,11 +8,11 @@ import IMG_ALFALFA from "../assets/images/alfalfa.jpg";
 
 const PRODUCTS = [
   {
-    name: "Road Grass",
+    name: "Rhodes Grass",
     to: "./product/guar-gum",
     img: IMG_GUAR,
     alt: "Road Grass product",
-    blurb: "High-quality Road-Grass derivatives for industrial applications.",
+    blurb: "High-quality Rhodes-Grass derivatives for industrial applications.",
   },
   {
     name: "Alfalfa",

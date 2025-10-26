@@ -2,30 +2,26 @@ import React from "react";
 import "./AgGroup.css";
 
 const COMPANIES = [
+ 
   {
-    title: "Hassaan Builders",
+    title: "KATCO",
     body:
-      "Initially, Hassaan Builders started its operations as a construction company in 1985. Later on, the company extended its business into oil field as well. Currently, HB is recognized as one of the best sellers of oil products across the country which mainly includes Bitumen.",
+      "KATCO is a specialised company focused on cultivation, processing and export of Rhodes Grass & Alfalfa forage. The company operates modern baling and logistics infrastructure to supply bulk forage to Gulf and Asian markets.",
   },
   {
-    title: "Hassaan Carriage Services",
+    title: "THE EXPRESS F&B Trading LLC",
     body:
-      "Hassaan Carriage services is a transportation company which provides carriage services to a large number of companies especially to Punjab Highway, FWO and NLC. The services include bitumen and other oil products delivery from refinery to customer’s site in bowsers, trailers, and trucks.",
+      "THE EXPRESS F&B Trading LLC, Dubai-based, operates in the food & beverage trading sector, handling large volume shipments of grains, oilseeds and other agri-commodities into the Middle East hospitality chain.",
   },
   {
-    title: "Shaheer Oil Mills",
+    title: "Indus Farming Corporation ",
     body:
-      "Shaheer Oil Mills specializes in processing of cotton seeds to extract cotton seed oil and cotton seed cake.",
+      "Indus Farming Corporation, based in Pakistan, established in 2010 as the first company in the country dedicated to premium Rhodes Grass hay and Alfalfa hay exports. It manages over 1,000 acres and serves international feed markets. ",
   },
   {
-    title: "Shaheer Feed Mills",
+    title: "ArdAkhdar Trading – UAE",
     body:
-      "Shaheer Feed Mills is producing wide range of feed products for Dairy Industry. It is located near Shaheer Oil Mills. SFM complies the best manufacturing and bio-security standards to provide the quality products.",
-  },
-  {
-    title: "AG Enterprises",
-    body:
-      "AG Enterprises is a licensed Import/Export based firm. The company is involved in import and export of numerous products including Japanese cars, Industrial Machinery and different instruments.",
+      "ArdAkhdar is a Dubai-based agro-products trading company specialising in fresh fruits, vegetables, premium rice and spices, leveraging the UAE trade gateway to serve markets across the Middle East and Africa. ",
   },
 ];
 
@@ -35,9 +31,9 @@ export default function AgGroup() {
       <div className="ag__inner">
         {/* Section Head */}
         <header className="ag__head">
-          <p className="ag__eyebrow">KAMAR GROUP Companies</p>
+          <p className="ag__eyebrow">QAMAR GROUP Companies</p>
           <h2 id="aggroup-title" className="ag__title">
-            Brief introduction of different companies within KAMAR GROUP of Industries
+            Brief introduction of different companies within QAMAR GROUP of Industries
           </h2>
           <p className="ag__lede">
             A quick look at the subsidiaries and business units that make up the Group.

@@ -72,7 +72,7 @@ export default function AboutProducts() {
           transition={{ type: "spring", stiffness: 60, damping: 12 }}
           viewport={{ once: true, amount: 0.4 }}
         >
-          Guar & Alfalfa — Built for Consistent Performance
+          Rhodes Grass & Alfalfa — Built for Consistent Performance
         </motion.h2>
 
         {/* Grid: no redundant wrappers; children animate themselves */}
@@ -104,9 +104,9 @@ export default function AboutProducts() {
               whileInView="show"
               viewport={{ once: true, amount: 0.6 }}
             >
-              We specialize in natural <strong>guar</strong> and <strong>alfalfa</strong> solutions. Through careful
-              sourcing and controlled processing, we deliver stable <em>viscosity, purity, and consistency</em> across
-              food, feed, and industrial grades.
+              We specialize in premium <strong>Rhodes Grass</strong> and <strong>Alfalfa</strong> forage solutions.
+              Through responsible cultivation and controlled processing, we ensure dependable{" "}
+              <em>nutritional value, purity, and consistency</em> for both animal feed and agricultural applications.
             </motion.p>
 
             <motion.ul
@@ -116,10 +116,10 @@ export default function AboutProducts() {
               whileInView="show"
               viewport={{ once: true, amount: 0.5 }}
             >
-              <motion.li variants={itemUp}>Seed-to-shipment lot traceability</motion.li>
-              <motion.li variants={itemUp}>Tight particle-size &amp; moisture control</motion.li>
-              <motion.li variants={itemUp}>Batch-tested rheology for guar gum</motion.li>
-              <motion.li variants={itemUp}>Clean, efficient processing for alfalfa</motion.li>
+              <motion.li variants={itemUp}>Farm-to-shipment traceability</motion.li>
+              <motion.li variants={itemUp}>Moisture &amp; leaf-to-stem ratio control</motion.li>
+              <motion.li variants={itemUp}>Nutrient-tested batches for optimal quality</motion.li>
+              <motion.li variants={itemUp}>Clean, efficient baling and storage</motion.li>
             </motion.ul>
           </motion.article>
 
@@ -150,8 +150,8 @@ export default function AboutProducts() {
               whileInView="show"
               viewport={{ once: true, amount: 0.6 }}
             >
-              We keep things transparent—clear specs, reliable deliveries, and open communication. Our operations favor
-              <em> resource-efficient, low-waste</em> practices while supporting growers and partners long term.
+              We value transparency, reliability, and sustainability. From field management to delivery, our practices
+              emphasize <em>resource efficiency and long-term partnerships</em> with growers and buyers alike.
             </motion.p>
 
             {/* Pledges as a light stagger */}
@@ -166,7 +166,7 @@ export default function AboutProducts() {
                 <span className="dot" />
                 <div>
                   <h4>Transparent Specs</h4>
-                  <p>COAs per lot, consistent QA/QC, and documentation ready.</p>
+                  <p>Detailed quality reports and consistent lot documentation.</p>
                 </div>
               </motion.div>
 
@@ -174,7 +174,7 @@ export default function AboutProducts() {
                 <span className="dot" />
                 <div>
                   <h4>Reliable Logistics</h4>
-                  <p>Predictable lead times and shipment tracking.</p>
+                  <p>Predictable lead times, efficient export handling, and tracking.</p>
                 </div>
               </motion.div>
 
@@ -182,7 +182,7 @@ export default function AboutProducts() {
                 <span className="dot" />
                 <div>
                   <h4>Responsible Sourcing</h4>
-                  <p>Grower partnerships and smarter input use.</p>
+                  <p>Field partnerships promoting sustainable crop cycles and input use.</p>
                 </div>
               </motion.div>
             </motion.div>

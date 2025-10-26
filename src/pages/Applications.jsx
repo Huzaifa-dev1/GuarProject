@@ -106,7 +106,7 @@ export default function Applications() {
       <div className="apps-inner">
         <header className="apps-head">
           <h2 id="apps-title" className="apps-title">Applications</h2>
-          <p className="apps-sub">Nine real-world uses for Rhodes Grass &amp; Alfalfa</p>
+          <p className="apps-sub">Real-world uses for Rhodes Grass &amp; Alfalfa</p>
           <span className="apps-rule" aria-hidden />
         </header>
 

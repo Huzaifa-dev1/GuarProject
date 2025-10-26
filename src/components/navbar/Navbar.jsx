@@ -27,7 +27,7 @@ const MENU = [
     to: "/quality",
     children: [
       { label: "Quality Control", to: "/quality/quality-control" },
-      { label: "Certifications", to: "/quality/certifications" },
+    
     ],
   },
   { label: "CONTACT", to: "/contact" },
