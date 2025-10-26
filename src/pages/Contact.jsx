@@ -18,84 +18,89 @@ export default function Contact() {
 
         {/* Contact Info Grid */}
         <div className="contact__grid">
-          {/* Head Office */}
-          <article className="c-card" aria-labelledby="head-office-title">
+          {/* Pakistan Office */}
+          <article className="c-card" aria-labelledby="pak-office-title">
             <div className="c-card__head">
               <FiHome className="c-card__icon" />
-              <h3 id="head-office-title" className="c-card__title">Head Office</h3>
+              <h3 id="pak-office-title" className="c-card__title">Pakistan Office</h3>
             </div>
 
             <ul className="c-list">
               <li className="c-item">
                 <FiMapPin />
                 <span>
-                  Mini bypass, near Eid Gah, Kot Addu, Punjab, Pakistan
+                  Office: Asif Arcade, GT Road Mini Bypass, Kot Addu, Punjab, Pakistan
                 </span>
               </li>
               <li className="c-item">
                 <FiPhone />
-                <a href="tel:+92662241706">+92 66 224 1706</a>
+                <a href="tel:+923306008545">+92 330 600 8545</a>
               </li>
               <li className="c-item">
                 <FiPhone />
-                <a href="tel:+923061700074">+92 306 170 0074</a>
+                <span>WhatsApp: +92 330 600 8545</span>
               </li>
               <li className="c-item">
                 <FiMail />
-                <a href="mailto:aggi@agggumindustries.com">aggi@agggumindustries.com</a>
+                <a href="mailto:Mjaglobaltrading@gmail.com">Mjaglobaltrading@gmail.com</a>
               </li>
             </ul>
           </article>
 
-          {/* Factory */}
-          <article className="c-card" aria-labelledby="factory-title">
+          {/* UAE Office */}
+          <article className="c-card" aria-labelledby="uae-office-title">
             <div className="c-card__head">
               <TbBuildingFactory className="c-card__icon" />
-              <h3 id="factory-title" className="c-card__title">Factory</h3>
+              <h3 id="uae-office-title" className="c-card__title">Dubai Office (UAE)</h3>
             </div>
 
             <ul className="c-list">
               <li className="c-item">
                 <FiMapPin />
                 <span>
-                  3.5Km Kot Addu–Sinawan GT road near bypass, Kot Addu, Punjab, Pakistan
+                  Office: Al Aweer Market Building 1, Shop 15, Dubai, UAE
                 </span>
               </li>
               <li className="c-item">
                 <FiPhone />
-                <a href="tel:+923401700073">+92 340 170 0073</a>
+                <a href="tel:+971566787265">+971 56 678 7265</a>
+              </li>
+              <li className="c-item">
+                <FiPhone />
+                <span>WhatsApp: +971 56 678 7265</span>
+              </li>
+              <li className="c-item">
+                <FiMail />
+                <a href="mailto:Mjaglobaltrading@gmail.com">Mjaglobaltrading@gmail.com</a>
               </li>
             </ul>
           </article>
         </div>
 
-       {/* Maps */}
-<section className="contact__maps" aria-labelledby="map-title">
-  <h3 id="map-title" className="map__title">Find Us</h3>
-  <p className="map__desc">Factory location near Khojay Wala, Kot Addu.</p>
+        {/* Maps */}
+        <section className="contact__maps" aria-labelledby="map-title">
+          <h3 id="map-title" className="map__title">Find Us</h3>
+          <p className="map__desc">Pakistan office near Mini Bypass, Kot Addu.</p>
 
-  <div className="mapframe">
-    <iframe
-      title="Factory Location Map"
-      loading="lazy"
-      referrerPolicy="no-referrer-when-downgrade"
-      // ✅ Use a place/search embed (works in iframes)
-      src="https://www.google.com/maps?q=Khojay+Wala,+Kot+Addu,+Punjab,+Pakistan&output=embed"
-      allowFullScreen
-    />
-  </div>
+          <div className="mapframe">
+            <iframe
+              title="Office Location Map"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              src="https://www.google.com/maps?q=Asif+Arcade,+GT+Road+Mini+Bypass,+Kot+Addu,+Punjab,+Pakistan&output=embed"
+              allowFullScreen
+            />
+          </div>
 
-  {/* Optional: open the full directions page in a new tab */}
-  <a
-    className="map__cta"
-    href="https://www.google.com/maps/dir//Khojay+Wala/@30.4703649,70.944434,14z/data=!4m5!4m4!1m0!1m2!1m1!1s0x39253b8795044a6f:0xf20c7c210e40e4ab"
-    target="_blank"
-    rel="noreferrer"
-  >
-    Open directions in Google Maps
-  </a>
-</section>
-
+          <a
+            className="map__cta"
+            href="https://www.google.com/maps/dir//Asif+Arcade,+GT+Road+Mini+Bypass,+Kot+Addu,+Punjab,+Pakistan"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Open directions in Google Maps
+          </a>
+        </section>
       </div>
     </section>
   );

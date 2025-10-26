@@ -72,7 +72,7 @@ export default function AboutProducts() {
           transition={{ type: "spring", stiffness: 60, damping: 12 }}
           viewport={{ once: true, amount: 0.4 }}
         >
-          Road Grass &amp; Alfalfa — Built for Consistent Performance
+          Guar & Alfalfa — Built for Consistent Performance
         </motion.h2>
 
         {/* Grid: no redundant wrappers; children animate themselves */}
@@ -104,9 +104,9 @@ export default function AboutProducts() {
               whileInView="show"
               viewport={{ once: true, amount: 0.6 }}
             >
-              We specialize in natural <strong>Road Grass</strong> and <strong>Alfalfa</strong> solutions. By pairing
-              certified seed selection with climate-fit cultivars and controlled curing/processing, we deliver dependable{" "}
-              <em>establishment, nutrition, and consistency</em> across turf, forage, and select industrial uses.
+              We specialize in natural <strong>guar</strong> and <strong>alfalfa</strong> solutions. Through careful
+              sourcing and controlled processing, we deliver stable <em>viscosity, purity, and consistency</em> across
+              food, feed, and industrial grades.
             </motion.p>
 
             <motion.ul
@@ -117,9 +117,9 @@ export default function AboutProducts() {
               viewport={{ once: true, amount: 0.5 }}
             >
               <motion.li variants={itemUp}>Seed-to-shipment lot traceability</motion.li>
-              <motion.li variants={itemUp}>Tight purity &amp; moisture control</motion.li>
-              <motion.li variants={itemUp}>Proven germination &amp; fast establishment for Road Grass</motion.li>
-              <motion.li variants={itemUp}>Clean, nutrient-preserving processing for alfalfa</motion.li>
+              <motion.li variants={itemUp}>Tight particle-size &amp; moisture control</motion.li>
+              <motion.li variants={itemUp}>Batch-tested rheology for guar gum</motion.li>
+              <motion.li variants={itemUp}>Clean, efficient processing for alfalfa</motion.li>
             </motion.ul>
           </motion.article>
 
@@ -150,9 +150,8 @@ export default function AboutProducts() {
               whileInView="show"
               viewport={{ once: true, amount: 0.6 }}
             >
-              We keep things transparent—clear specs, reliable deliveries, and open communication. Our operations favor{" "}
-              <em>resource-efficient, low-waste</em> practices while supporting growers and partners long term, from
-              roadside stabilization and erosion control (Road Grass) to high-value forage nutrition (Alfalfa).
+              We keep things transparent—clear specs, reliable deliveries, and open communication. Our operations favor
+              <em> resource-efficient, low-waste</em> practices while supporting growers and partners long term.
             </motion.p>
 
             {/* Pledges as a light stagger */}
@@ -167,9 +166,7 @@ export default function AboutProducts() {
                 <span className="dot" />
                 <div>
                   <h4>Transparent Specs</h4>
-                  <p>
-                    COAs per lot, germination &amp; purity reports, and moisture/protein (RFV/ADF/NDF where applicable).
-                  </p>
+                  <p>COAs per lot, consistent QA/QC, and documentation ready.</p>
                 </div>
               </motion.div>
 
@@ -177,7 +174,7 @@ export default function AboutProducts() {
                 <span className="dot" />
                 <div>
                   <h4>Reliable Logistics</h4>
-                  <p>Predictable lead times, shipment tracking, and consistent packaging.</p>
+                  <p>Predictable lead times and shipment tracking.</p>
                 </div>
               </motion.div>
 
@@ -185,7 +182,7 @@ export default function AboutProducts() {
                 <span className="dot" />
                 <div>
                   <h4>Responsible Sourcing</h4>
-                  <p>Grower partnerships, region-fit varieties, and smarter input use.</p>
+                  <p>Grower partnerships and smarter input use.</p>
                 </div>
               </motion.div>
             </motion.div>

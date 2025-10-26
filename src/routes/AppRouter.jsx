@@ -1,4 +1,5 @@
 // src/routes/AppRouter.jsx
+import React, { Suspense } from "react"; // 👈 Import Suspense and React
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
 
@@ -6,23 +7,27 @@ import { AnimatePresence, motion } from "framer-motion";
 import Navbar from "../components/navbar/Navbar.jsx";
 import Footer from "../components/Footer.jsx";
 
-// Pages
-import Home from "../pages/Home.jsx";
-import CompanyIntro from "../pages/introduction/CompanyIntro.jsx";
-import WhatIsGuar from "../pages/introduction/WhatIsGuar.jsx";
-import AgGroup from "../pages/introduction/AgGroup.jsx";
-import CeoMessage from "../pages/introduction/CeoMessage.jsx";
+// ❌ OLD: Directly importing all pages, making the initial bundle large.
+// import Home from "../pages/Home.jsx";
+// import CompanyIntro from "../pages/introduction/CompanyIntro.jsx";
+// ... (all other pages)
 
-import GuarGum from "../pages/products/GuarGum.jsx";
+// ✅ NEW: Using React.lazy() to dynamically import pages only when needed.
+const Home = React.lazy(() => import("../pages/Home.jsx"));
+const CompanyIntro = React.lazy(() => import("../pages/introduction/CompanyIntro.jsx"));
+const WhatIsGuar = React.lazy(() => import("../pages/introduction/WhatIsGuar.jsx"));
+const AgGroup = React.lazy(() => import("../pages/introduction/AgGroup.jsx"));
+const CeoMessage = React.lazy(() => import("../pages/introduction/CeoMessage.jsx"));
 
-import Alfalfa from "../pages/products/Alfalfa.jsx";
+const GuarGum = React.lazy(() => import("../pages/products/GuarGum.jsx"));
+const Alfalfa = React.lazy(() => import("../pages/products/Alfalfa.jsx"));
 
-import Applications from "../pages/Applications.jsx";
-import QualityControl from "../pages/quality/QualityControl.jsx";
-import Certifications from "../pages/quality/Certifications.jsx";
-import Contact from "../pages/Contact.jsx";
+const Applications = React.lazy(() => import("../pages/Applications.jsx"));
+const QualityControl = React.lazy(() => import("../pages/quality/QualityControl.jsx"));
+const Certifications = React.lazy(() => import("../pages/quality/Certifications.jsx"));
+const Contact = React.lazy(() => import("../pages/Contact.jsx"));
 
-//scale and duration for changes//
+// scale and duration for changes//
 const pageVariants = {
   initial: { opacity: 0, scale: 0.985 },
   in:      { opacity: 1, scale: 1.0 },
@@ -53,35 +58,43 @@ function Page({ children }) {
 
 function AnimatedRoutes() {
   const location = useLocation();
+  
+  // Define a simple fallback component to show while the chunk is loading
+  // You might want a better-styled loading spinner or skeleton component here.
+  const LoadingFallback = <div style={{ minHeight: '80vh', textAlign: 'center', padding: '50px' }}>Loading Content...</div>; 
+
   return (
     <AnimatePresence mode="wait">
-      <Routes location={location} key={location.pathname}>
-        {/* Home */}
-        <Route path="/" element={<Page><Home /></Page>} />
+      {/* 👈 Wrap Routes with Suspense */}
+      <Suspense fallback={LoadingFallback}>
+        <Routes location={location} key={location.pathname}>
+          {/* Home */}
+          <Route path="/" element={<Page><Home /></Page>} />
 
-        {/* Introduction */}
-        <Route path="/introduction/company" element={<Page><CompanyIntro /></Page>} />
-        <Route path="/introduction/guar" element={<Page><WhatIsGuar /></Page>} />
-        <Route path="/introduction/ag-group" element={<Page><AgGroup /></Page>} />
-        <Route path="/introduction/ceo-message" element={<Page><CeoMessage /></Page>} />
+          {/* Introduction */}
+          <Route path="/introduction/company" element={<Page><CompanyIntro /></Page>} />
+          <Route path="/introduction/guar" element={<Page><WhatIsGuar /></Page>} />
+          <Route path="/introduction/ag-group" element={<Page><AgGroup /></Page>} />
+          <Route path="/introduction/ceo-message" element={<Page><CeoMessage /></Page>} />
 
-        {/* Products */}
-        <Route path="/product/guar-gum" element={<Page><GuarGum /></Page>} />
-        <Route path="/product/alfalfa" element={<Page><Alfalfa /></Page>} />
+          {/* Products */}
+          <Route path="/product/guar-gum" element={<Page><GuarGum /></Page>} />
+          <Route path="/product/alfalfa" element={<Page><Alfalfa /></Page>} />
 
-        {/* Applications */}
-        <Route path="/applications" element={<Page><Applications /></Page>} />
+          {/* Applications */}
+          <Route path="/applications" element={<Page><Applications /></Page>} />
 
-        {/* Quality */}
-        <Route path="/quality/quality-control" element={<Page><QualityControl /></Page>} />
-        <Route path="/quality/certifications" element={<Page><Certifications /></Page>} />
+          {/* Quality */}
+          <Route path="/quality/quality-control" element={<Page><QualityControl /></Page>} />
+          <Route path="/quality/certifications" element={<Page><Certifications /></Page>} />
 
-        {/* Contact */}
-        <Route path="/contact" element={<Page><Contact /></Page>} />
+          {/* Contact */}
+          <Route path="/contact" element={<Page><Contact /></Page>} />
 
-        {/* Fallback */}
-        <Route path="*" element={<Page><Home /></Page>} />
-      </Routes>
+          {/* Fallback */}
+          <Route path="*" element={<Page><Home /></Page>} />
+        </Routes>
+      </Suspense>
     </AnimatePresence>
   );
 }

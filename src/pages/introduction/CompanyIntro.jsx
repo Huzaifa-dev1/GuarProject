@@ -65,7 +65,7 @@ export default function CompanyIntro() {
         {/* Header */}
         <motion.header className="ci__head" variants={fadeDown}>
           <h2 id="company-intro-title" className="ci__title">
-            AG Gum Industries
+            Qamar Group
           </h2>
           <p className="ci__tagline">
             Origin, Growth, and Commitment to Quality
@@ -78,7 +78,7 @@ export default function CompanyIntro() {
         <motion.section className="ci__block" variants={fadeDown}>
           <h3 className="ci__sub">Our Origin</h3>
           <p className="ci__text">
-            <strong>AG Gum Industries (AGGI)</strong> is rooted in Southern Punjab,
+            <strong>Qamar Group (QGRP)</strong> is rooted in Southern Punjab,
             a region recognized for rich agriculture and extensive cultivation of{" "}
             <strong>Road Grass</strong> and <strong>Alfalfa</strong>. Core cultivating areas include{" "}
             <em>Muzaffargarh, Taunsa Shareef, Layyah, Bhakkar, and Mianwali</em>.
@@ -91,12 +91,12 @@ export default function CompanyIntro() {
         <motion.section className="ci__block" variants={fadeDown}>
           <h3 className="ci__sub">Family Heritage</h3>
           <p className="ci__text">
-            The seed-trading enterprise began with the <strong>AG family</strong> in
+            The seed-trading enterprise began with the <strong>Qamar family</strong> in
             the 1950s, initially focused on <strong>Road Grass</strong> and{" "}
-            <strong>Alfalfa</strong> seed trade. It was led by{" "}
-            <strong>Ch. Rahim Ud Din (Late)</strong>, grandfather of AG Group’s
+            {/* <strong>Alfalfa</strong> seed trade. It was led by{" "}
+            <strong>Ch. Rahim Ud Din (Late)</strong>, grandfather of Qamar Group’s
             current CEO, whose vision centered on growth and prosperity for the
-            Road Grass &amp; Alfalfa sector.
+            Road Grass &amp; Alfalfa sector. */}
           </p>
         </motion.section>
 
@@ -108,9 +108,9 @@ export default function CompanyIntro() {
           <p className="ci__text">
             Building on a diversified group portfolio—construction, carriage
             services, oil mill, and bitumen trading—the Group established{" "}
-            <strong>AG Gum Industries (AGGI)</strong>, the region’s first dedicated
+            <strong>Qamar Group (QGRP)</strong>, the region’s first dedicated
             seed/forage processing unit for <strong>Road Grass</strong> and{" "}
-            <strong>Alfalfa</strong>. Today, AGGI serves export and domestic markets
+            <strong>Alfalfa</strong>. Today, QGRP serves export and domestic markets
             with:
           </p>
           <motion.ul

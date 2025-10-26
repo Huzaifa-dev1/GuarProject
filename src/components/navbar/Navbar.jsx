@@ -9,8 +9,7 @@ const MENU = [
     to: "/introduction",
     children: [
       { label: "Company Introduction", to: "/introduction/company" },
-    
-      { label: "AG Group of Industries", to: "/introduction/ag-group" },
+      { label: "Kamar Group of Industries", to: "/introduction/ag-group" },
       { label: "CEO Message", to: "/introduction/ceo-message" },
     ],
   },
@@ -18,7 +17,7 @@ const MENU = [
     label: "PRODUCT",
     to: "/product",
     children: [
-      { label: "Road Grass", to: "/product/guar-gum" },
+      { label: "Rhodes Grass", to: "/product/guar-gum" },
       { label: "AlfaLfa", to: "/product/alfalfa" },
     ],
   },
@@ -38,34 +37,46 @@ export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openIdx, setOpenIdx] = useState(null);
   const [mobileDropdown, setMobileDropdown] = useState({});
-  const [theme, setTheme] = useState(
-    localStorage.getItem("ag-theme") ||
-      (window.matchMedia &&
-      window.matchMedia("(prefers-color-scheme: dark)").matches
-        ? "dark"
-        : "light")
-  );
+  const [theme, setTheme] = useState(() => {
+    const stored = localStorage.getItem("ag-theme");
+    if (stored) return stored;
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+      return "dark";
+    }
+    return "light";
+  });
 
   const [overHero, setOverHero] = useState(false);
   const wrapRef = useRef(null);
 
-  /* -------------------- Theme Handling -------------------- */
+  // Ensure viewport meta tag is set correctly
+  useEffect(() => {
+    let viewport = document.querySelector('meta[name="viewport"]');
+    if (!viewport) {
+      viewport = document.createElement('meta');
+      viewport.name = 'viewport';
+      document.head.appendChild(viewport);
+    }
+    viewport.content = 'width=device-width, initial-scale=1, maximum-scale=5, user-scalable=yes';
+  }, []);
+
+  // Theme
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
     localStorage.setItem("ag-theme", theme);
   }, [theme]);
 
-  /* -------------------- Shadow when Scrolled -------------------- */
+  // Add shadow when scrolled
   useEffect(() => {
     const onScroll = () => {
       wrapRef.current?.classList.toggle("nav--scrolled", window.scrollY > 2);
     };
     onScroll();
-    window.addEventListener("scroll", onScroll);
+    window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  /* -------------------- Transparent only over Hero -------------------- */
+  // Transparent only over hero
   useEffect(() => {
     const navEl = wrapRef.current;
     const hero = document.querySelector("#hero");
@@ -85,48 +96,79 @@ export default function Navbar() {
       if (!sentinel) {
         sentinel = document.createElement("div");
         sentinel.setAttribute("data-nav-sentinel", "true");
-        sentinel.style.position = "absolute";
-        sentinel.style.top = "0";
-        sentinel.style.left = "0";
-        sentinel.style.width = "1px";
-        sentinel.style.height = "1px";
-        hero.style.position = hero.style.position || "relative";
+        Object.assign(sentinel.style, {
+          position: "absolute",
+          top: "0",
+          left: "0",
+          width: "1px",
+          height: "1px",
+          pointerEvents: "none",
+        });
+        if (!hero.style.position) hero.style.position = "relative";
         hero.prepend(sentinel);
       }
       obs.observe(sentinel);
       return () => obs.disconnect();
     }
 
-    // fallback
+    // Fallback for very old browsers
     const onFallback = () => {
       const rect = hero.getBoundingClientRect();
       const isOver = rect.top <= navHeight && rect.bottom >= 0;
       setOverHero(isOver);
     };
     onFallback();
-    window.addEventListener("scroll", onFallback);
-    window.addEventListener("resize", onFallback);
+    window.addEventListener("scroll", onFallback, { passive: true });
+    window.addEventListener("resize", onFallback, { passive: true });
     return () => {
       window.removeEventListener("scroll", onFallback);
       window.removeEventListener("resize", onFallback);
     };
   }, []);
 
-  /* -------------------- Toggles -------------------- */
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMobileOpen(false);
+  }, [window.location.pathname]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  // Toggles
   const toggleMobile = () => setMobileOpen((s) => !s);
   const toggleMobileDropdown = (key) =>
     setMobileDropdown((s) => ({ ...s, [key]: !s[key] }));
   const toggleTheme = () => setTheme((t) => (t === "dark" ? "light" : "dark"));
 
+  const closeMobileMenu = () => {
+    setMobileOpen(false);
+    setMobileDropdown({});
+  };
+
   return (
     <header
       ref={wrapRef}
       className={`nav ${overHero ? "nav--over-hero" : ""}`}
+      role="banner"
     >
       <div className="nav__inner">
         {/* Brand */}
-        <Link to="/" className="nav__brand">
-          AG GROUP
+        <Link 
+          to="/" 
+          className="nav__brand" 
+          aria-label="AG Group home"
+          onClick={closeMobileMenu}
+        >
+          QAMAR GRP
         </Link>
 
         {/* Desktop menu */}
@@ -143,7 +185,12 @@ export default function Navbar() {
                 onMouseEnter={() => hasChildren && setOpenIdx(i)}
                 onMouseLeave={() => hasChildren && setOpenIdx(null)}
               >
-                <NavLink to={item.to} className="nav__link">
+                <NavLink 
+                  to={item.to} 
+                  className={({ isActive }) => 
+                    `nav__link ${isActive ? "active" : ""}`
+                  }
+                >
                   <span className="nav__text">{item.label}</span>
                   {hasChildren && (
                     <svg
@@ -151,6 +198,7 @@ export default function Navbar() {
                       width="12"
                       height="12"
                       viewBox="0 0 24 24"
+                      aria-hidden="true"
                     >
                       <path
                         d="M7 10l5 5 5-5"
@@ -167,7 +215,13 @@ export default function Navbar() {
                 {hasChildren && (
                   <div className="nav__dropdown" role="menu">
                     {item.children.map((sub) => (
-                      <NavLink key={sub.to} to={sub.to} className="nav__dd-link">
+                      <NavLink 
+                        key={sub.to} 
+                        to={sub.to} 
+                        className={({ isActive }) => 
+                          `nav__dd-link ${isActive ? "active" : ""}`
+                        }
+                      >
                         {sub.label}
                       </NavLink>
                     ))}
@@ -178,23 +232,26 @@ export default function Navbar() {
           })}
         </nav>
 
-        {/* Right side controls */}
+        {/* Right controls */}
         <div className="nav__controls">
           <button
             className="theme-toggle"
             onClick={toggleTheme}
-            aria-label="Toggle theme"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            type="button"
           >
             <span className="theme-toggle__label">DARK</span>
-            <span className={`theme-toggle__switch ${theme}`} />
+            <span className={`theme-toggle__switch ${theme}`} aria-hidden="true" />
             <span className="theme-toggle__label">LIGHT</span>
           </button>
 
           <button
             className={`nav__burger ${mobileOpen ? "is-active" : ""}`}
             aria-expanded={mobileOpen}
-            aria-label="Open menu"
+            aria-controls="mobile-menu"
+            aria-label={mobileOpen ? "Close menu" : "Open menu"}
             onClick={toggleMobile}
+            type="button"
           >
             <span />
             <span />
@@ -204,7 +261,13 @@ export default function Navbar() {
       </div>
 
       {/* Mobile menu */}
-      <div className={`nav__mobile ${mobileOpen ? "open" : ""}`}>
+      <div
+        id="mobile-menu"
+        className={`nav__mobile ${mobileOpen ? "open" : ""}`}
+        role="navigation"
+        aria-label="Mobile"
+        aria-hidden={!mobileOpen}
+      >
         {MENU.map((item) => {
           const hasChildren = Array.isArray(item.children);
           const key = item.label;
@@ -213,8 +276,10 @@ export default function Navbar() {
               <div className="mitem__head">
                 <NavLink
                   to={item.to}
-                  className="mitem__link"
-                  onClick={() => setMobileOpen(false)}
+                  className={({ isActive }) => 
+                    `mitem__link ${isActive ? "active" : ""}`
+                  }
+                  onClick={closeMobileMenu}
                 >
                   {item.label}
                 </NavLink>
@@ -224,9 +289,12 @@ export default function Navbar() {
                     className={`mitem__toggle ${
                       mobileDropdown[key] ? "open" : ""
                     }`}
+                    aria-expanded={!!mobileDropdown[key]}
+                    aria-label={`Toggle ${item.label} submenu`}
                     onClick={() => toggleMobileDropdown(key)}
+                    type="button"
                   >
-                    <svg width="16" height="16" viewBox="0 0 24 24">
+                    <svg width="16" height="16" viewBox="0 0 24 24" aria-hidden="true">
                       <path
                         d="M7 10l5 5 5-5"
                         stroke="currentColor"
@@ -242,16 +310,16 @@ export default function Navbar() {
 
               {hasChildren && (
                 <div
-                  className={`mitem__body ${
-                    mobileDropdown[key] ? "open" : ""
-                  }`}
+                  className={`mitem__body ${mobileDropdown[key] ? "open" : ""}`}
                 >
                   {item.children.map((sub) => (
                     <NavLink
                       key={sub.to}
                       to={sub.to}
-                      className="mitem__sublink"
-                      onClick={() => setMobileOpen(false)}
+                      className={({ isActive }) => 
+                        `mitem__sublink ${isActive ? "active" : ""}`
+                      }
+                      onClick={closeMobileMenu}
                     >
                       {sub.label}
                     </NavLink>
