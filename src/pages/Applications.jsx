@@ -22,20 +22,6 @@ const APPLICATIONS = [
       "Alfalfa hay/silage for dairy cows, beef cattle, horses, sheep, and goats. High protein with digestible fiber.",
   },
   {
-    title: "Mulch",
-    img: IMG_RECYCLE,
-    alt: "Mulch application",
-    blurb:
-      "Clippings used as garden mulch to protect soil, keep moisture, and help suppress weeds.",
-  },
-  {
-    title: "Human Food / Dietary",
-    img: IMG_SPROUTS,
-    alt: "Alfalfa sprouts for food",
-    blurb:
-    "Alfalfa sprouts in salads & sandwiches. Leaf powder/tablets/tea often used as supplements rich in vitamins and antioxidants.",
-  },
-  {
     title: "Forage / Pasture",
     img: IMG_ALFALFA,
     alt: "Forage and pasture",
@@ -48,6 +34,20 @@ const APPLICATIONS = [
     alt: "Soil improvement",
     blurb:
     "As a cover crop, improves soil structure, water infiltration, and fertility; can help reduce certain pests like nematodes.",
+  },
+  {
+    title: "Mulch",
+    img: IMG_RECYCLE,
+    alt: "Mulch application",
+    blurb:
+      "Clippings used as garden mulch to protect soil, keep moisture, and help suppress weeds.",
+  },
+  {
+    title: "Human Food / Dietary",
+    img: IMG_SPROUTS,
+    alt: "Alfalfa sprouts for food",
+    blurb:
+    "Alfalfa sprouts in salads & sandwiches. Leaf powder/tablets/tea often used as supplements rich in vitamins and antioxidants.",
   },
   {
     title: "Cosmetics / Skin Care",
