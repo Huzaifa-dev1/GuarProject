@@ -9,7 +9,7 @@ const MENU = [
     to: "/introduction",
     children: [
       { label: "Company Introduction", to: "/introduction/company" },
-      { label: "Kamar Group of Industries", to: "/introduction/ag-group" },
+      { label: "MJA GROUP of Industries", to: "/introduction/ag-group" },
       { label: "CEO Message", to: "/introduction/ceo-message" },
     ],
   },
@@ -168,7 +168,7 @@ export default function Navbar() {
           aria-label="AG Group home"
           onClick={closeMobileMenu}
         >
-          QAMAR GRP
+          MJA GRP
         </Link>
 
         {/* Desktop menu */}

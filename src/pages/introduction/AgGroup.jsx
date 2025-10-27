@@ -31,9 +31,9 @@ export default function AgGroup() {
       <div className="ag__inner">
         {/* Section Head */}
         <header className="ag__head">
-          <p className="ag__eyebrow">QAMAR GROUP Companies</p>
+          <p className="ag__eyebrow">MJA GROUP Companies</p>
           <h2 id="aggroup-title" className="ag__title">
-            Brief introduction of different companies within QAMAR GROUP of Industries
+            Brief introduction of different companies within MJA GROUP of Industries
           </h2>
           <p className="ag__lede">
             A quick look at the subsidiaries and business units that make up the Group.

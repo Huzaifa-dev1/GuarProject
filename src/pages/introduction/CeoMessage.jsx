@@ -43,21 +43,21 @@ export default function CeoMessage() {
 
             <div className="leader-copy">
               <p>
-                QAMAR GROUP is an establishment based on originality—whether it’s the originality of the
+                MJA GROUP is an establishment based on originality—whether it’s the originality of the
                 product or the company. Because we, as a company, believe that it is better to
                 fail in originality than to succeed in imitation.
               </p>
               <p>
-                QAMAR GROUP is currently operating in the export of Alfalfa and Rhodes grass,
+                MJA GROUP is currently operating in the export of Alfalfa and Rhodes grass,
                 serving both domestic and international clientele with high-quality agricultural products.
                 We aim to continuously expand our export operations and strengthen our global presence.
               </p>
               <p>
-                QAMAR GROUP is solely established and designed with the intention of practically benefiting
+                MJA GROUP is solely established and designed with the intention of practically benefiting
                 the economy, business, and humanity by allowing better living standards for all.
               </p>
               <p>
-                “What one does is what counts.” QAMAR GROUP truly and sincerely intends to do responsible
+                “What one does is what counts.” MJA GROUP truly and sincerely intends to do responsible
                 business in order to make our intentions come true.
               </p>
             </div>

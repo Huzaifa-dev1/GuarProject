@@ -4,7 +4,7 @@ import "./CompanyIntro.css";
 
 /* ================================
    Animation Variants
-   ================================ */
+================================ */
 const container = {
   hidden: { opacity: 1 },
   show: {
@@ -46,7 +46,7 @@ export default function CompanyIntro() {
     offset: ["start 85%", "end 20%"],
   });
 
-  // smooth opacity + vertical shift mapping
+  // Smooth opacity + vertical shift mapping
   const sectionOpacity = useTransform(scrollYProgress, [0, 0.5, 1], [0.2, 1, 0.2]);
   const sectionY = useTransform(scrollYProgress, [0, 0.5, 1], [20, 0, -20]);
 
@@ -65,7 +65,7 @@ export default function CompanyIntro() {
         {/* Header */}
         <motion.header className="ci__head" variants={fadeDown}>
           <h2 id="company-intro-title" className="ci__title">
-            Qamar Group
+            MJA Group
           </h2>
           <p className="ci__tagline">
             Origin, Growth, and Commitment to Quality
@@ -78,10 +78,10 @@ export default function CompanyIntro() {
         <motion.section className="ci__block" variants={fadeDown}>
           <h3 className="ci__sub">Our Origin</h3>
           <p className="ci__text">
-            <strong>Qamar Group (QGRP)</strong> is rooted in Southern Punjab,
+            <strong>MJA Group (MJAGRP)</strong> is rooted in Southern Punjab,
             a region recognized for rich agriculture and extensive cultivation of{" "}
-            <strong>Rhodes Grass</strong> and <strong>Alfalfa</strong>. Core cultivating areas include{" "}
-            <em>Muzaffargarh, Taunsa Shareef, Layyah, Bhakkar, and Mianwali</em>.
+            <strong>Rhodes Grass</strong> and <strong>Alfalfa</strong>. Core cultivating
+            areas include <em>Muzaffargarh, Taunsa Shareef, Layyah, Bhakkar, and Mianwali</em>.
           </p>
         </motion.section>
 
@@ -91,12 +91,9 @@ export default function CompanyIntro() {
         <motion.section className="ci__block" variants={fadeDown}>
           <h3 className="ci__sub">Family Heritage</h3>
           <p className="ci__text">
-            The seed-trading enterprise began with the <strong>Qamar family</strong> in
+            The seed-trading enterprise began with the <strong>MJA family</strong> in
             the 1950s, initially focused on <strong>Rhodes Grass</strong> and{" "}
-            {/* <strong>Alfalfa</strong> seed trade. It was led by{" "}
-            <strong>Ch. Rahim Ud Din (Late)</strong>, grandfather of Qamar Group’s
-            current CEO, whose vision centered on growth and prosperity for the
-            Rhodes Grass &amp; Alfalfa sector. */}
+            <strong>Alfalfa</strong> seed trade. 
           </p>
         </motion.section>
 
@@ -108,9 +105,9 @@ export default function CompanyIntro() {
           <p className="ci__text">
             Building on a diversified group portfolio—construction, carriage
             services, oil mill, and bitumen trading—the Group established{" "}
-            <strong>Qamar Group (QGRP)</strong>, the region’s first dedicated
+            <strong>MJA Group (MJAGRP)</strong>, the region’s first dedicated
             seed/forage processing unit for <strong>Rhodes Grass</strong> and{" "}
-            <strong>Alfalfa</strong>. Today, QGRP serves export and domestic markets
+            <strong>Alfalfa</strong>. Today, MJA GRP serves export and domestic markets
             with:
           </p>
           <motion.ul
