@@ -13,27 +13,7 @@ import IMG_ALFALFA   from "../assets/images/rhoesanimal.png";
 import IMG_SOIL      from "../assets/images/soil.png";
 
 const APPLICATIONS = [
-  {
-    title: "Human Food / Dietary",
-    img: IMG_SPROUTS,
-    alt: "Alfalfa sprouts for food",
-    blurb:
-      "Alfalfa sprouts in salads & sandwiches. Leaf powder/tablets/tea often used as supplements rich in vitamins and antioxidants.",
-  },
-  {
-    title: "Cosmetics / Skin Care",
-    img: IMG_COSMETICS,
-    alt: "Natural cosmetic ingredient",
-    blurb:
-      "Alfalfa extracts may support skin recovery in creams and gels. Used in natural formulations for gentle care.",
-  },
-  {
-    title: "Health & Wellness",
-    img: IMG_WELLNESS,
-    alt: "Wellness applications",
-    blurb:
-      "Used in herbal practice for potential cholesterol support, blood-sugar balance, and anti-inflammatory effects.",
-  },
+ 
   {
     title: "High-Quality Livestock Feed",
     img: IMG_ANIMALS,
@@ -49,34 +29,56 @@ const APPLICATIONS = [
       "Clippings used as garden mulch to protect soil, keep moisture, and help suppress weeds.",
   },
   {
-    title: "Biofuel / Bioproducts",
-    img: IMG_BIOFUEL,
-    alt: "Biofuel and bioproducts",
+    title: "Human Food / Dietary",
+    img: IMG_SPROUTS,
+    alt: "Alfalfa sprouts for food",
     blurb:
-      "Biomass fractionation: leaves for feed/supplements; stems for gasification or fermentation into biofuels and chemicals.",
+    "Alfalfa sprouts in salads & sandwiches. Leaf powder/tablets/tea often used as supplements rich in vitamins and antioxidants.",
   },
   {
     title: "Forage / Pasture",
     img: IMG_ALFALFA,
     alt: "Forage and pasture",
     blurb:
-      "Rhodes Grass and Alfalfa used for grazing or hay — reliable stands, good recovery, suitable for warm regions.",
+    "Rhodes Grass and Alfalfa used for grazing or hay — reliable stands, good recovery, suitable for warm regions.",
   },
   {
     title: "Soil Improvement / Cover Crop",
     img: IMG_SOIL,
     alt: "Soil improvement",
     blurb:
-      "As a cover crop, improves soil structure, water infiltration, and fertility; can help reduce certain pests like nematodes.",
+    "As a cover crop, improves soil structure, water infiltration, and fertility; can help reduce certain pests like nematodes.",
   },
-];
-
-const slideIn = (dir = "left") => ({
-  hidden: { opacity: 0, x: dir === "left" ? -80 : 80, scale: 0.98 },
-  show: {
-    opacity: 1,
-    x: 0,
-    scale: 1,
+  {
+    title: "Cosmetics / Skin Care",
+    img: IMG_COSMETICS,
+    alt: "Natural cosmetic ingredient",
+    blurb:
+    "Alfalfa extracts may support skin recovery in creams and gels. Used in natural formulations for gentle care.",
+  },
+  {
+    title: "Health & Wellness",
+    img: IMG_WELLNESS,
+    alt: "Wellness applications",
+    blurb:
+    "Used in herbal practice for potential cholesterol support, blood-sugar balance, and anti-inflammatory effects.",
+  },
+  {
+    title: "Biofuel / Bioproducts",
+    img: IMG_BIOFUEL,
+    alt: "Biofuel and bioproducts",
+    blurb:
+      "Biomass fractionation: leaves for feed/supplements; stems for gasification or fermentation into biofuels and chemicals.",
+  },
+  
+  ];
+  
+  const slideIn = (dir = "left") => ({
+    hidden: { opacity: 0, x: dir === "left" ? -80 : 80, scale: 0.98 },
+    show: {
+      opacity: 1,
+      x: 0,
+      scale: 1,
     transition: { duration: 0.6, ease: [0.22, 1, 0.36, 1] },
   },
 });

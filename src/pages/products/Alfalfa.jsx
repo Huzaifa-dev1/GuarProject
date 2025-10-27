@@ -107,7 +107,7 @@ export default function Alfalfa() {
           animate="show"
         >
           <motion.h1 className="ah__title" variants={fadeUp}>
-            Alfalfa <span className="muted">(Meal &amp; Pellets)</span>
+            Alfalfa-Hay <span className="muted"></span>
           </motion.h1>
 
           <motion.p className="ah__blurb" variants={fadeUp}>
