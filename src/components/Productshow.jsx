@@ -79,7 +79,7 @@ export default function Productshow() {
             Our Products
           </h2>
           <p className="products__subtitle">
-            Premium <strong>Road Grass</strong> and alfalfa solutions engineered for performance.
+            Premium <strong>Rhodes Grass</strong> and alfalfa solutions engineered for performance.
           </p>
         </motion.header>
 
