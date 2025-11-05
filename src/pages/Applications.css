@@ -63,6 +63,7 @@
   object-fit: cover;
   object-position: center;
   transition: transform .35s ease;
+    z-index: 0
 }
 .appcard:hover .appcard__media img { transform: scale(1.05); }
 
@@ -73,6 +74,7 @@
   background: linear-gradient(to top, rgba(0,0,0,0.45), rgba(0,0,0,0.1));
   transition: opacity .25s ease;
   pointer-events: none;
+  z-index: 1;    
 }
 .appcard:hover .appcard__overlay { opacity: 1; }
 
